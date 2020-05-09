@@ -1,0 +1,18 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: ebuy-user-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: https://ebuy-registry-service.herokuapp.com/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    healthcheck:
+      enabled: true
+  instance:
+    preferIpAddress: true
+
