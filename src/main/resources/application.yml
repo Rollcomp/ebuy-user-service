@@ -4,6 +4,21 @@ server:
 spring:
   application:
     name: ebuy-user-service
+  datasource:
+    url: jdbc:postgresql://ec2-176-34-97-213.eu-west-1.compute.amazonaws.com/dfks70if0oahnb
+    username: dvvxxdbaskzhti
+    password: 289d658520e0bcead496070aedb9f2e36d51e2bf960b135c5121d53b2f6478c8
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+  jackson:
+    serialization:
+      indent_output: true
 
 eureka:
   client:
