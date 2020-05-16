@@ -1,37 +1,23 @@
-package org.ebuy.userservice.entity;
+package org.ebuy.userservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.ebuy.userservice.model.Gender;
 import org.ebuy.userservice.model.Membership;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
 
 /**
  * Created by Ozgur Ustun on May, 2020
  */
 
-@Entity
 @Getter
 @Setter
-public class User {
+public class UserDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String firstName;
-    private String lastName;
     private String email;
-    private String mobile;
-    private Date birthDate;
     private Gender gender;
     private Membership membership;
     //Payment asamasinda kullanilan address buraya eklenecek
     private String lastUsedAddress;
-
 }
