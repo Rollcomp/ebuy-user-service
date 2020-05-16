@@ -16,6 +16,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
@@ -27,7 +28,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping("/get-users")
+    @GetMapping("/get-all")
     public ResponseEntity<List<UserDto>> getAllUsers() {
         List<User> userList = userService.getAllUsers();
         return ResponseEntity.ok(userMapper.userListToUserDtoList(userList));
@@ -45,17 +46,17 @@ public class UserController {
         return ResponseEntity.ok(userMapper.userToUserDto(user));
     }
 
-    @PostMapping("/update-user")
+    @PostMapping("/update")
     public ResponseEntity<UserDto> updateUser(@RequestBody UserRequest userRequest) {
         return ResponseEntity.ok(userMapper.userToUserDto(userService.updateUser(userRequest)));
     }
 
-    @PostMapping("/create-user")
+    @PostMapping("/create")
     public ResponseEntity<UserDto> createUser(@RequestBody UserRequest userRequest) {
         return ResponseEntity.ok(userMapper.userToUserDto(userService.createUser(userRequest)));
     }
 
-    @PostMapping("/delete-user")
+    @PostMapping("/delete")
     public ResponseEntity<String> deleteUser(@RequestBody UserRequest userRequest){
         userService.deleteUser(userRequest.getEmail());
         return ResponseEntity.ok("Completed");
