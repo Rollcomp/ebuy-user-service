@@ -15,6 +15,7 @@ import java.util.Date;
 @Setter
 public class UserDto {
 
+    private Long id;
     private String email;
     private Gender gender;
     private Membership membership;

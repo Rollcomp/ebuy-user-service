@@ -3,6 +3,7 @@ package org.ebuy.userservice.controller;
 import org.ebuy.userservice.dto.UserDto;
 import org.ebuy.userservice.entity.User;
 import org.ebuy.userservice.mapper.UserMapper;
+import org.ebuy.userservice.model.UserRequest;
 import org.ebuy.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,21 +39,32 @@ public class UserController {
         return ResponseEntity.ok(userMapper.userToUserDto(user));
     }
 
-    @GetMapping("/get-user/{userEmail}")
+    @GetMapping("/{userEmail}/get-user")
     public ResponseEntity<UserDto> getUserByEmail(@PathVariable String userEmail) {
         User user = userService.findUserByEmail(userEmail);
         return ResponseEntity.ok(userMapper.userToUserDto(user));
     }
 
     @PostMapping("/update-user")
-    public ResponseEntity<UserDto> updateUser(@RequestBody User user) {
-        return ResponseEntity.ok(userMapper.userToUserDto(userService.updateUser(user)));
+    public ResponseEntity<UserDto> updateUser(@RequestBody UserRequest userRequest) {
+        return ResponseEntity.ok(userMapper.userToUserDto(userService.updateUser(userRequest)));
     }
 
     @PostMapping("/create-user")
-    public ResponseEntity<UserDto> createUser(@RequestBody User user) {
-        return ResponseEntity.ok(userMapper.userToUserDto(userService.createUser(user)));
+    public ResponseEntity<UserDto> createUser(@RequestBody UserRequest userRequest) {
+        return ResponseEntity.ok(userMapper.userToUserDto(userService.createUser(userRequest)));
     }
 
+    @PostMapping("/delete-user")
+    public ResponseEntity<String> deleteUser(@RequestBody UserRequest userRequest){
+        userService.deleteUser(userRequest.getEmail());
+        return ResponseEntity.ok("Completed");
+    }
+
+    @PostMapping("/delete-users")
+    public ResponseEntity<String> deleteAllUsers(){
+        userService.deleteAllUsers();
+        return ResponseEntity.ok("Completed");
+    }
 
 }
