@@ -1,0 +1,61 @@
+POST http://localhost:8087/delete-users
+Content-Type: application/json
+
+###
+POST http://localhost:8087/delete-user
+Content-Type: application/json
+
+{
+  "firstName": "Rollcomp",
+  "lastName": "Rollcomp",
+  "email": "ozgurustun65@gmail.com",
+  "mobile": "6363636363",
+  "birthDate": "210994",
+  "gender": "FEMALE",
+  "membership": "ELITE",
+  "lastUsedAddress": "Istanbul"
+}
+
+###
+POST http://localhost:8087/update-user
+Content-Type: application/json
+
+{
+  "firstName": "Rollcomp",
+  "lastName": "Rollcomp",
+  "email": "ozgurustun65@gmail.com",
+  "mobile": "6363636363",
+  "birthDate": "210994",
+  "gender": "FEMALE",
+  "membership": "ELITE",
+  "lastUsedAddress": "Istanbul"
+}
+
+###
+POST http://localhost:8087/create-user
+Content-Type: application/json
+
+{
+
+  "firstName": "Ozgur",
+  "lastName": "Ustun",
+  "email": "ozgurustun65@gmail.com",
+  "mobile": "6363636363",
+  "birthDate": "210994",
+  "gender": "MALE",
+  "membership": "ELITE",
+  "lastUsedAddress": "Istanbul"
+}
+
+###
+GET http://localhost:8087/ozgurustun65@gmail.com/get-user
+Accept: application/json
+
+###
+GET http://localhost:8087/get-user/9
+Accept: application/json
+
+###
+GET http://localhost:8087/get-users
+Accept: application/json
+###
